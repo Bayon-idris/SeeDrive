@@ -1,0 +1,605 @@
+# SeeDrive camera configuration
+# Chaque source_video est un MP4 de simulation.
+# Chaque rtsp_url doit correspondre au chemin utilisé par FFmpeg/MediaMTX.
+
+cameras:
+  - id: cam_01
+    name: DETRAC MVI_20011
+    rtsp_url: rtsp://127.0.0.1:8554/cam_01
+    source_video: datasets/videos/generated/MVI_20011.mp4
+    enabled: false
+
+  - id: cam_02
+    name: DETRAC MVI_20012
+    rtsp_url: rtsp://127.0.0.1:8554/cam_02
+    source_video: datasets/videos/generated/MVI_20012.mp4
+    enabled: false
+
+  - id: cam_03
+    name: DETRAC MVI_20032
+    rtsp_url: rtsp://127.0.0.1:8554/cam_03
+    source_video: datasets/videos/generated/MVI_20032.mp4
+    enabled: false
+
+  - id: cam_04
+    name: DETRAC MVI_20033
+    rtsp_url: rtsp://127.0.0.1:8554/cam_04
+    source_video: datasets/videos/generated/MVI_20033.mp4
+    enabled: false
+
+  - id: cam_05
+    name: DETRAC MVI_20034
+    rtsp_url: rtsp://127.0.0.1:8554/cam_05
+    source_video: datasets/videos/generated/MVI_20034.mp4
+    enabled: false
+
+
+  - id: cam_06
+    name: DETRAC MVI_20035
+    rtsp_url: rtsp://127.0.0.1:8554/cam_06
+    source_video: datasets/videos/generated/MVI_20035.mp4
+    enabled: false
+
+  - id: cam_07
+    name: DETRAC MVI_20051
+    rtsp_url: rtsp://127.0.0.1:8554/cam_07
+    source_video: datasets/videos/generated/MVI_20051.mp4
+    enabled: false
+
+  - id: cam_08
+    name: DETRAC MVI_20052
+    rtsp_url: rtsp://127.0.0.1:8554/cam_08
+    source_video: datasets/videos/generated/MVI_20052.mp4
+    enabled: false
+
+  - id: cam_09
+    name: DETRAC MVI_20061
+    rtsp_url: rtsp://127.0.0.1:8554/cam_09
+    source_video: datasets/videos/generated/MVI_20061.mp4
+    enabled: false
+
+  - id: cam_10
+    name: DETRAC MVI_20062
+    rtsp_url: rtsp://127.0.0.1:8554/cam_10
+    source_video: datasets/videos/generated/MVI_20062.mp4
+    enabled: true
+
+  - id: cam_11
+    name: DETRAC MVI_20063
+    rtsp_url: rtsp://127.0.0.1:8554/cam_11
+    source_video: datasets/videos/generated/MVI_20063.mp4
+    enabled: false
+
+  - id: cam_12
+    name: DETRAC MVI_20064
+    rtsp_url: rtsp://127.0.0.1:8554/cam_12
+    source_video: datasets/videos/generated/MVI_20064.mp4
+    enabled: false
+
+  - id: cam_13
+    name: DETRAC MVI_20065
+    rtsp_url: rtsp://127.0.0.1:8554/cam_13
+    source_video: datasets/videos/generated/MVI_20065.mp4
+    enabled: false
+
+  - id: cam_14
+    name: DETRAC MVI_39031
+    rtsp_url: rtsp://127.0.0.1:8554/cam_14
+    source_video: datasets/videos/generated/MVI_39031.mp4
+    enabled: false
+
+  - id: cam_15
+    name: DETRAC MVI_39051
+    rtsp_url: rtsp://127.0.0.1:8554/cam_15
+    source_video: datasets/videos/generated/MVI_39051.mp4
+    enabled: false
+
+  - id: cam_16
+    name: DETRAC MVI_39211
+    rtsp_url: rtsp://127.0.0.1:8554/cam_16
+    source_video: datasets/videos/generated/MVI_39211.mp4
+    enabled: false
+
+  - id: cam_17
+    name: DETRAC MVI_39271
+    rtsp_url: rtsp://127.0.0.1:8554/cam_17
+    source_video: datasets/videos/generated/MVI_39271.mp4
+    enabled: false
+
+  - id: cam_18
+    name: DETRAC MVI_39311
+    rtsp_url: rtsp://127.0.0.1:8554/cam_18
+    source_video: datasets/videos/generated/MVI_39311.mp4
+    enabled: false
+
+  - id: cam_19
+    name: DETRAC MVI_39361
+    rtsp_url: rtsp://127.0.0.1:8554/cam_19
+    source_video: datasets/videos/generated/MVI_39361.mp4
+    enabled: false
+
+  - id: cam_20
+    name: DETRAC MVI_39371
+    rtsp_url: rtsp://127.0.0.1:8554/cam_20
+    source_video: datasets/videos/generated/MVI_39371.mp4
+    enabled: false
+
+  - id: cam_21
+    name: DETRAC MVI_39401
+    rtsp_url: rtsp://127.0.0.1:8554/cam_21
+    source_video: datasets/videos/generated/MVI_39401.mp4
+    enabled: false
+
+  - id: cam_22
+    name: DETRAC MVI_39501
+    rtsp_url: rtsp://127.0.0.1:8554/cam_22
+    source_video: datasets/videos/generated/MVI_39501.mp4
+    enabled: false
+
+  - id: cam_23
+    name: DETRAC MVI_39511
+    rtsp_url: rtsp://127.0.0.1:8554/cam_23
+    source_video: datasets/videos/generated/MVI_39511.mp4
+    enabled: false
+
+  - id: cam_24
+    name: DETRAC MVI_39761
+    rtsp_url: rtsp://127.0.0.1:8554/cam_24
+    source_video: datasets/videos/generated/MVI_39761.mp4
+    enabled: false
+
+  - id: cam_25
+    name: DETRAC MVI_39771
+    rtsp_url: rtsp://127.0.0.1:8554/cam_25
+    source_video: datasets/videos/generated/MVI_39771.mp4
+    enabled: false
+
+  - id: cam_26
+    name: DETRAC MVI_39781
+    rtsp_url: rtsp://127.0.0.1:8554/cam_26
+    source_video: datasets/videos/generated/MVI_39781.mp4
+    enabled: false
+
+  - id: cam_27
+    name: DETRAC MVI_39801
+    rtsp_url: rtsp://127.0.0.1:8554/cam_27
+    source_video: datasets/videos/generated/MVI_39801.mp4
+    enabled: false
+
+  - id: cam_28
+    name: DETRAC MVI_39811
+    rtsp_url: rtsp://127.0.0.1:8554/cam_28
+    source_video: datasets/videos/generated/MVI_39811.mp4
+    enabled: false
+
+  - id: cam_29
+    name: DETRAC MVI_39821
+    rtsp_url: rtsp://127.0.0.1:8554/cam_29
+    source_video: datasets/videos/generated/MVI_39821.mp4
+    enabled: false
+
+  - id: cam_30
+    name: DETRAC MVI_39851
+    rtsp_url: rtsp://127.0.0.1:8554/cam_30
+    source_video: datasets/videos/generated/MVI_39851.mp4
+    enabled: false
+
+  - id: cam_31
+    name: DETRAC MVI_39861
+    rtsp_url: rtsp://127.0.0.1:8554/cam_31
+    source_video: datasets/videos/generated/MVI_39861.mp4
+    enabled: false
+
+  - id: cam_32
+    name: DETRAC MVI_39931
+    rtsp_url: rtsp://127.0.0.1:8554/cam_32
+    source_video: datasets/videos/generated/MVI_39931.mp4
+    enabled: false
+
+  - id: cam_33
+    name: DETRAC MVI_40131
+    rtsp_url: rtsp://127.0.0.1:8554/cam_33
+    source_video: datasets/videos/generated/MVI_40131.mp4
+    enabled: false
+
+  - id: cam_34
+    name: DETRAC MVI_40141
+    rtsp_url: rtsp://127.0.0.1:8554/cam_34
+    source_video: datasets/videos/generated/MVI_40141.mp4
+    enabled: false
+
+  - id: cam_35
+    name: DETRAC MVI_40152
+    rtsp_url: rtsp://127.0.0.1:8554/cam_35
+    source_video: datasets/videos/generated/MVI_40152.mp4
+    enabled: false
+
+  - id: cam_36
+    name: DETRAC MVI_40161
+    rtsp_url: rtsp://127.0.0.1:8554/cam_36
+    source_video: datasets/videos/generated/MVI_40161.mp4
+    enabled: false
+
+  - id: cam_37
+    name: DETRAC MVI_40162
+    rtsp_url: rtsp://127.0.0.1:8554/cam_37
+    source_video: datasets/videos/generated/MVI_40162.mp4
+    enabled: false
+
+  - id: cam_38
+    name: DETRAC MVI_40171
+    rtsp_url: rtsp://127.0.0.1:8554/cam_38
+    source_video: datasets/videos/generated/MVI_40171.mp4
+    enabled: false
+
+  - id: cam_39
+    name: DETRAC MVI_40172
+    rtsp_url: rtsp://127.0.0.1:8554/cam_39
+    source_video: datasets/videos/generated/MVI_40172.mp4
+    enabled: false
+
+  - id: cam_40
+    name: DETRAC MVI_40181
+    rtsp_url: rtsp://127.0.0.1:8554/cam_40
+    source_video: datasets/videos/generated/MVI_40181.mp4
+    enabled: false
+
+  - id: cam_41
+    name: DETRAC MVI_40191
+    rtsp_url: rtsp://127.0.0.1:8554/cam_41
+    source_video: datasets/videos/generated/MVI_40191.mp4
+    enabled: false
+
+  - id: cam_42
+    name: DETRAC MVI_40192
+    rtsp_url: rtsp://127.0.0.1:8554/cam_42
+    source_video: datasets/videos/generated/MVI_40192.mp4
+    enabled: false
+
+  - id: cam_43
+    name: DETRAC MVI_40201
+    rtsp_url: rtsp://127.0.0.1:8554/cam_43
+    source_video: datasets/videos/generated/MVI_40201.mp4
+    enabled: false
+
+  - id: cam_44
+    name: DETRAC MVI_40204
+    rtsp_url: rtsp://127.0.0.1:8554/cam_44
+    source_video: datasets/videos/generated/MVI_40204.mp4
+    enabled: false
+
+  - id: cam_45
+    name: DETRAC MVI_40211
+    rtsp_url: rtsp://127.0.0.1:8554/cam_45
+    source_video: datasets/videos/generated/MVI_40211.mp4
+    enabled: false
+
+  - id: cam_46
+    name: DETRAC MVI_40212
+    rtsp_url: rtsp://127.0.0.1:8554/cam_46
+    source_video: datasets/videos/generated/MVI_40212.mp4
+    enabled: false
+
+  - id: cam_47
+    name: DETRAC MVI_40213
+    rtsp_url: rtsp://127.0.0.1:8554/cam_47
+    source_video: datasets/videos/generated/MVI_40213.mp4
+    enabled: false
+
+  - id: cam_48
+    name: DETRAC MVI_40241
+    rtsp_url: rtsp://127.0.0.1:8554/cam_48
+    source_video: datasets/videos/generated/MVI_40241.mp4
+    enabled: false
+
+  - id: cam_49
+    name: DETRAC MVI_40243
+    rtsp_url: rtsp://127.0.0.1:8554/cam_49
+    source_video: datasets/videos/generated/MVI_40243.mp4
+    enabled: false
+
+  - id: cam_50
+    name: DETRAC MVI_40244
+    rtsp_url: rtsp://127.0.0.1:8554/cam_50
+    source_video: datasets/videos/generated/MVI_40244.mp4
+    enabled: false
+
+  - id: cam_51
+    name: DETRAC MVI_40701
+    rtsp_url: rtsp://127.0.0.1:8554/cam_51
+    source_video: datasets/videos/generated/MVI_40701.mp4
+    enabled: false
+
+  - id: cam_52
+    name: DETRAC MVI_40711
+    rtsp_url: rtsp://127.0.0.1:8554/cam_52
+    source_video: datasets/videos/generated/MVI_40711.mp4
+    enabled: false
+
+  - id: cam_53
+    name: DETRAC MVI_40712
+    rtsp_url: rtsp://127.0.0.1:8554/cam_53
+    source_video: datasets/videos/generated/MVI_40712.mp4
+    enabled: false
+
+  - id: cam_54
+    name: DETRAC MVI_40714
+    rtsp_url: rtsp://127.0.0.1:8554/cam_54
+    source_video: datasets/videos/generated/MVI_40714.mp4
+    enabled: false
+
+  - id: cam_55
+    name: DETRAC MVI_40732
+    rtsp_url: rtsp://127.0.0.1:8554/cam_55
+    source_video: datasets/videos/generated/MVI_40732.mp4
+    enabled: false
+
+  - id: cam_56
+    name: DETRAC MVI_40742
+    rtsp_url: rtsp://127.0.0.1:8554/cam_56
+    source_video: datasets/videos/generated/MVI_40742.mp4
+    enabled: false
+
+  - id: cam_57
+    name: DETRAC MVI_40743
+    rtsp_url: rtsp://127.0.0.1:8554/cam_57
+    source_video: datasets/videos/generated/MVI_40743.mp4
+    enabled: false
+
+  - id: cam_58
+    name: DETRAC MVI_40751
+    rtsp_url: rtsp://127.0.0.1:8554/cam_58
+    source_video: datasets/videos/generated/MVI_40751.mp4
+    enabled: false
+
+  - id: cam_59
+    name: DETRAC MVI_40752
+    rtsp_url: rtsp://127.0.0.1:8554/cam_59
+    source_video: datasets/videos/generated/MVI_40752.mp4
+    enabled: false
+
+  - id: cam_60
+    name: DETRAC MVI_40761
+    rtsp_url: rtsp://127.0.0.1:8554/cam_60
+    source_video: datasets/videos/generated/MVI_40761.mp4
+    enabled: false
+
+  - id: cam_61
+    name: DETRAC MVI_40762
+    rtsp_url: rtsp://127.0.0.1:8554/cam_61
+    source_video: datasets/videos/generated/MVI_40762.mp4
+    enabled: false
+
+  - id: cam_62
+    name: DETRAC MVI_40763
+    rtsp_url: rtsp://127.0.0.1:8554/cam_62
+    source_video: datasets/videos/generated/MVI_40763.mp4
+    enabled: false
+
+  - id: cam_63
+    name: DETRAC MVI_40771
+    rtsp_url: rtsp://127.0.0.1:8554/cam_63
+    source_video: datasets/videos/generated/MVI_40771.mp4
+    enabled: false
+
+  - id: cam_64
+    name: DETRAC MVI_40772
+    rtsp_url: rtsp://127.0.0.1:8554/cam_64
+    source_video: datasets/videos/generated/MVI_40772.mp4
+    enabled: false
+
+  - id: cam_65
+    name: DETRAC MVI_40773
+    rtsp_url: rtsp://127.0.0.1:8554/cam_65
+    source_video: datasets/videos/generated/MVI_40773.mp4
+    enabled: false
+
+  - id: cam_66
+    name: DETRAC MVI_40774
+    rtsp_url: rtsp://127.0.0.1:8554/cam_66
+    source_video: datasets/videos/generated/MVI_40774.mp4
+    enabled: false
+
+  - id: cam_67
+    name: DETRAC MVI_40775
+    rtsp_url: rtsp://127.0.0.1:8554/cam_67
+    source_video: datasets/videos/generated/MVI_40775.mp4
+    enabled: false
+
+  - id: cam_68
+    name: DETRAC MVI_40792
+    rtsp_url: rtsp://127.0.0.1:8554/cam_68
+    source_video: datasets/videos/generated/MVI_40792.mp4
+    enabled: false
+
+  - id: cam_69
+    name: DETRAC MVI_40793
+    rtsp_url: rtsp://127.0.0.1:8554/cam_69
+    source_video: datasets/videos/generated/MVI_40793.mp4
+    enabled: false
+
+  - id: cam_70
+    name: DETRAC MVI_40851
+    rtsp_url: rtsp://127.0.0.1:8554/cam_70
+    source_video: datasets/videos/generated/MVI_40851.mp4
+    enabled: false
+
+  - id: cam_71
+    name: DETRAC MVI_40852
+    rtsp_url: rtsp://127.0.0.1:8554/cam_71
+    source_video: datasets/videos/generated/MVI_40852.mp4
+    enabled: false
+
+  - id: cam_72
+    name: DETRAC MVI_40853
+    rtsp_url: rtsp://127.0.0.1:8554/cam_72
+    source_video: datasets/videos/generated/MVI_40853.mp4
+    enabled: false
+
+  - id: cam_73
+    name: DETRAC MVI_40854
+    rtsp_url: rtsp://127.0.0.1:8554/cam_73
+    source_video: datasets/videos/generated/MVI_40854.mp4
+    enabled: false
+
+  - id: cam_74
+    name: DETRAC MVI_40855
+    rtsp_url: rtsp://127.0.0.1:8554/cam_74
+    source_video: datasets/videos/generated/MVI_40855.mp4
+    enabled: false
+
+  - id: cam_75
+    name: DETRAC MVI_40863
+    rtsp_url: rtsp://127.0.0.1:8554/cam_75
+    source_video: datasets/videos/generated/MVI_40863.mp4
+    enabled: false
+
+  - id: cam_76
+    name: DETRAC MVI_40864
+    rtsp_url: rtsp://127.0.0.1:8554/cam_76
+    source_video: datasets/videos/generated/MVI_40864.mp4
+    enabled: false
+
+  - id: cam_77
+    name: DETRAC MVI_40871
+    rtsp_url: rtsp://127.0.0.1:8554/cam_77
+    source_video: datasets/videos/generated/MVI_40871.mp4
+    enabled: false
+
+  - id: cam_78
+    name: DETRAC MVI_40891
+    rtsp_url: rtsp://127.0.0.1:8554/cam_78
+    source_video: datasets/videos/generated/MVI_40891.mp4
+    enabled: false
+
+  - id: cam_79
+    name: DETRAC MVI_40892
+    rtsp_url: rtsp://127.0.0.1:8554/cam_79
+    source_video: datasets/videos/generated/MVI_40892.mp4
+    enabled: false
+
+  - id: cam_80
+    name: DETRAC MVI_40901
+    rtsp_url: rtsp://127.0.0.1:8554/cam_80
+    source_video: datasets/videos/generated/MVI_40901.mp4
+    enabled: false
+
+  - id: cam_81
+    name: DETRAC MVI_40902
+    rtsp_url: rtsp://127.0.0.1:8554/cam_81
+    source_video: datasets/videos/generated/MVI_40902.mp4
+    enabled: false
+
+  - id: cam_82
+    name: DETRAC MVI_40903
+    rtsp_url: rtsp://127.0.0.1:8554/cam_82
+    source_video: datasets/videos/generated/MVI_40903.mp4
+    enabled: false
+
+  - id: cam_83
+    name: DETRAC MVI_40904
+    rtsp_url: rtsp://127.0.0.1:8554/cam_83
+    source_video: datasets/videos/generated/MVI_40904.mp4
+    enabled: false
+
+  - id: cam_84
+    name: DETRAC MVI_40905
+    rtsp_url: rtsp://127.0.0.1:8554/cam_84
+    source_video: datasets/videos/generated/MVI_40905.mp4
+    enabled: false
+
+  - id: cam_85
+    name: DETRAC MVI_40962
+    rtsp_url: rtsp://127.0.0.1:8554/cam_85
+    source_video: datasets/videos/generated/MVI_40962.mp4
+    enabled: false
+
+  - id: cam_86
+    name: DETRAC MVI_40963
+    rtsp_url: rtsp://127.0.0.1:8554/cam_86
+    source_video: datasets/videos/generated/MVI_40963.mp4
+    enabled: false
+
+  - id: cam_87
+    name: DETRAC MVI_40981
+    rtsp_url: rtsp://127.0.0.1:8554/cam_87
+    source_video: datasets/videos/generated/MVI_40981.mp4
+    enabled: false
+
+  - id: cam_88
+    name: DETRAC MVI_40991
+    rtsp_url: rtsp://127.0.0.1:8554/cam_88
+    source_video: datasets/videos/generated/MVI_40991.mp4
+    enabled: false
+
+  - id: cam_89
+    name: DETRAC MVI_40992
+    rtsp_url: rtsp://127.0.0.1:8554/cam_89
+    source_video: datasets/videos/generated/MVI_40992.mp4
+    enabled: false
+
+  - id: cam_90
+    name: DETRAC MVI_41063
+    rtsp_url: rtsp://127.0.0.1:8554/cam_90
+    source_video: datasets/videos/generated/MVI_41063.mp4
+    enabled: false
+
+  - id: cam_91
+    name: DETRAC MVI_41073
+    rtsp_url: rtsp://127.0.0.1:8554/cam_91
+    source_video: datasets/videos/generated/MVI_41073.mp4
+    enabled: false
+
+  - id: cam_92
+    name: DETRAC MVI_63521
+    rtsp_url: rtsp://127.0.0.1:8554/cam_92
+    source_video: datasets/videos/generated/MVI_63521.mp4
+    enabled: false
+
+  - id: cam_93
+    name: DETRAC MVI_63525
+    rtsp_url: rtsp://127.0.0.1:8554/cam_93
+    source_video: datasets/videos/generated/MVI_63525.mp4
+    enabled: false
+
+  - id: cam_94
+    name: DETRAC MVI_63544
+    rtsp_url: rtsp://127.0.0.1:8554/cam_94
+    source_video: datasets/videos/generated/MVI_63544.mp4
+    enabled: false
+
+  - id: cam_95
+    name: DETRAC MVI_63552
+    rtsp_url: rtsp://127.0.0.1:8554/cam_95
+    source_video: datasets/videos/generated/MVI_63552.mp4
+    enabled: false
+
+  - id: cam_96
+    name: DETRAC MVI_63553
+    rtsp_url: rtsp://127.0.0.1:8554/cam_96
+    source_video: datasets/videos/generated/MVI_63553.mp4
+    enabled: false
+
+  - id: cam_97
+    name: DETRAC MVI_63554
+    rtsp_url: rtsp://127.0.0.1:8554/cam_97
+    source_video: datasets/videos/generated/MVI_63554.mp4
+    enabled: false
+
+  - id: cam_98
+    name: DETRAC MVI_63561
+    rtsp_url: rtsp://127.0.0.1:8554/cam_98
+    source_video: datasets/videos/generated/MVI_63561.mp4
+    enabled: false
+
+  - id: cam_99
+    name: DETRAC MVI_63562
+    rtsp_url: rtsp://127.0.0.1:8554/cam_99
+    source_video: datasets/videos/generated/MVI_63562.mp4
+    enabled: false
+
+  - id: cam_100
+    name: DETRAC MVI_63563
+    rtsp_url: rtsp://127.0.0.1:8554/cam_100
+    source_video: datasets/videos/generated/MVI_63563.mp4
+    enabled: false
