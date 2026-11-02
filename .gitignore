@@ -17,3 +17,17 @@ __pycache__/
 mediamtx.exe
 test.py
 yolo11n.pt
+
+# C++ build (rebuilt with CMake)
+tracking/sort_cpp/build/
+tracking/sort_cpp/tests/
+tracking/sort_cpp/third_party/
+*.pyd
+*.lib
+*.exe
+
+# Generated outputs (detections, ground truth, tracker results)
+outputs/
+
+#Vscode 
+.vscode/
