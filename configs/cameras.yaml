@@ -62,7 +62,7 @@ cameras:
     name: DETRAC MVI_20062
     rtsp_url: rtsp://127.0.0.1:8554/cam_10
     source_video: datasets/videos/generated/MVI_20062.mp4
-    enabled: true
+    enabled: false
 
   - id: cam_11
     name: DETRAC MVI_20063
@@ -302,7 +302,7 @@ cameras:
     name: DETRAC MVI_40244
     rtsp_url: rtsp://127.0.0.1:8554/cam_50
     source_video: datasets/videos/generated/MVI_40244.mp4
-    enabled: false
+    enabled: true
 
   - id: cam_51
     name: DETRAC MVI_40701

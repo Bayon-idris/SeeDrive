@@ -1,15 +1,12 @@
 import os
 import time
-import argparse
 from datetime import datetime
-from pathlib import Path
 import subprocess
 import shutil
 
 from configs.config import DEFAULT_FPS, LOG_DIR, ROOT
 from test import CONFIG_PATH
 
-# RTSP en TCP : évite les images grises/corrompues dues aux paquets UDP perdus.
 # Doit être défini AVANT l'import de cv2.
 os.environ.setdefault("OPENCV_FFMPEG_CAPTURE_OPTIONS", "rtsp_transport;tcp")
 
@@ -64,14 +61,14 @@ def start_cameras(cameras):
             continue
 
         command = [
-            ffmpeg,
-            "-re",
-            "-stream_loop", "-1",
-            "-i", str(source_video),
-            "-c", "copy",
-            "-f", "rtsp",
-            "-rtsp_transport", "tcp",
-            rtsp_url,
+            ffmpeg,                        # path to the ffmpeg program
+            "-re",                         # read the input at its native speed (25 fps) -> real time
+            "-stream_loop", "-1",          # loop the video forever (-1 = infinite)
+            "-i", str(source_video),       # input: the H.264 .mp4 file of this camera
+            "-c", "copy",                  # no re-encoding: send the video data as it is (fast, low CPU)
+            "-f", "rtsp",                  # output format: an RTSP stream
+            "-rtsp_transport", "tcp",      # send over TCP: lost packets are re-sent (no broken frames)
+            rtsp_url,                      # where to publish: MediaMTX, e.g. rtsp://127.0.0.1:8554/cam_01
         ]
 
         print(f"[FFMPEG] Démarrage de {camera_id}: {rtsp_url}")
@@ -130,11 +127,7 @@ def new_writer(cam_id, fps, size, output_dir=LOG_DIR):
 
 def run_camera(camera, segment=60, max_duration=None, record=True, display=True,
                max_failures=25):
-    """
-    Lit une caméra en continu.
-    - segment      : durée (s) de chaque fichier enregistré
-    - max_duration : arrêt après N secondes (None = jusqu'à 'q' ou Ctrl+C)
-    """
+   
     cam_id, url = camera["id"], camera["rtsp_url"]
 
     cap = open_stream(url)
