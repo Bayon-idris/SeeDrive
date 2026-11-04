@@ -6,7 +6,6 @@ from collections import deque
 from configs.config import STAGES, TARGET_CLASSES
 from perception.latency import LatencyStats
 from perception.shared_slot import SharedSlot
-from perception.helpers import load_model
 
 # RTSP over TCP (no lost packets). Must be set BEFORE importing cv2.
 os.environ.setdefault("OPENCV_FFMPEG_CAPTURE_OPTIONS", "rtsp_transport;tcp")
