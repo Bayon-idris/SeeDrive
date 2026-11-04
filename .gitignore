@@ -31,3 +31,6 @@ outputs/
 
 #Vscode 
 .vscode/
+
+# Third party libraries
+third_party/

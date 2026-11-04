@@ -13,17 +13,16 @@ Line format (MOT):  frame, -1, x, y, w, h, conf, -1, -1, -1
 """
 
 import argparse
-from pathlib import Path
 
 from ultralytics import YOLO
 
-ROOT = Path(__file__).resolve().parent.parent
-DATASET_DIR = ROOT / "datasets" / "DETRAC-Images" / "DETRAC-Images"
-OUTPUT_DIR = ROOT / "outputs" / "detections"
-
-DEFAULT_SEQUENCES = ["MVI_20011", "MVI_20012", "MVI_20032"]
-VEHICLE_CLASSES = [2, 5, 7]          # COCO: car, bus, truck (UA-DETRAC only annotates vehicles)
-IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
+from configs.config import (
+    DATASET_DIR,
+    DEFAULT_SEQUENCES,
+    IMAGE_EXTENSIONS,
+    OUTPUT_DIR,
+    VEHICLE_CLASSES,
+)
 
 
 def frame_number(image_path):
@@ -64,12 +63,14 @@ def save_sequence(model, seq_name, imgsz, conf):
                 verbose=False,
             )[0]
 
-            boxes = result.boxes.xyxy.tolist()    # [x1, y1, x2, y2] per box
+            boxes = result.boxes.xyxy.tolist()  # [x1, y1, x2, y2] per box
             scores = result.boxes.conf.tolist()
 
             for (x1, y1, x2, y2), score in zip(boxes, scores):
                 w, h = x2 - x1, y2 - y1
-                f.write(f"{frame_id},-1,{x1:.2f},{y1:.2f},{w:.2f},{h:.2f},{score:.4f},-1,-1,-1\n")
+                f.write(
+                    f"{frame_id},-1,{x1:.2f},{y1:.2f},{w:.2f},{h:.2f},{score:.4f},-1,-1,-1\n"
+                )
                 n_boxes += 1
 
     print(f"[OK] {seq_name}: {n_boxes} boxes saved -> {out_path}")
@@ -80,8 +81,12 @@ def main():
     parser.add_argument("--sequences", nargs="+", default=DEFAULT_SEQUENCES)
     parser.add_argument("--model", default="yolo11n.pt")
     parser.add_argument("--imgsz", type=int, default=960)
-    parser.add_argument("--conf", type=float, default=0.1,
-                        help="low on purpose: ByteTrack uses low-confidence boxes, SORT will filter")
+    parser.add_argument(
+        "--conf",
+        type=float,
+        default=0.1,
+        help="low on purpose: ByteTrack uses low-confidence boxes, SORT will filter",
+    )
     args = parser.parse_args()
 
     model = YOLO(args.model)

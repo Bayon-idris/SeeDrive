@@ -1,27 +1,86 @@
-from pathlib import Path
+"""
+configs/config.py
+Single place for every path and setting of SeeDrive.
+Other files import from here:  from configs.config import ROOT, IMAGES_DIR, ...
+"""
+
 import sys
+from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent.parent         
+# ============================================================
+# 1. PROJECT ROOT
+# ============================================================
+
+ROOT = Path(__file__).resolve().parent.parent
+
+
+# ============================================================
+# 2. DATASET (UA-DETRAC)
+# ============================================================
+
+IMAGES_DIR = ROOT / "datasets" / "DETRAC-Images" / "DETRAC-Images"
+ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Train-Annotations-XML"
+                   / "DETRAC-Train-Annotations-XML")
+VIDEOS_DIR = ROOT / "datasets" / "videos" / "generated"      # .mp4 made by create_detrac_videos.py
+
+DEFAULT_SEQUENCES = ["MVI_20011", "MVI_20012", "MVI_20032"]
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
+FPS = 25                                                     # UA-DETRAC is filmed at 25 fps
+
+
+# ============================================================
+# 3. LIVE PIPELINE (cameras, RTSP, logs)
+# ============================================================
+
 CONFIG_PATH = ROOT / "configs" / "cameras.yaml"
 LOG_DIR = ROOT / "log"
-DEFAULT_FPS = 25.0   
+DEFAULT_FPS = float(FPS)                                     # fallback when RTSP reports a wrong FPS
 
 
-DETECTIONS_DIR = ROOT / "outputs" / "detections"
-# RESULTS_DIR = (ROOT / "outputs" / "trackeval" / "trackers" / "mot_challenge"
-#                / "DETRAC-train" / "SORT" / "data")
+# ============================================================
+# 4. DETECTION (YOLO, COCO class IDs)
+# ============================================================
 
-TRACKERS_DIR = (ROOT / "outputs" / "trackeval" / "trackers" / "mot_challenge"
-                / "DETRAC-train")
+TARGET_CLASSES = [2, 3, 5, 7]     # live pipeline: car, motorcycle, bus, truck
+VEHICLE_CLASSES = [2, 5, 7]       # evaluation: car, bus, truck (what UA-DETRAC annotates)
+
+
+# ============================================================
+# 5. TRACKING BENCH (outputs)
+# ============================================================
+
+OUTPUTS_DIR = ROOT / "outputs"
+DETECTIONS_DIR = OUTPUTS_DIR / "detections"                  # YOLO boxes without IDs
+IGNORED_DIR = OUTPUTS_DIR / "ignored_regions"                # gray zones not annotated by humans
+
+# TrackEval folder layout: <gt or trackers>/mot_challenge/DETRAC-train/...
+BENCHMARK = "DETRAC"
+SPLIT = "train"
+BENCHMARK_SPLIT = f"{BENCHMARK}-{SPLIT}"                     # "DETRAC-train"
+
+TRACKEVAL_DIR = OUTPUTS_DIR / "trackeval"
+GT_FOLDER = TRACKEVAL_DIR / "gt" / "mot_challenge"           # ground truth root (for TrackEval)
+TRACKERS_FOLDER = TRACKEVAL_DIR / "trackers" / "mot_challenge"
+GT_DIR = GT_FOLDER / BENCHMARK_SPLIT                         # one folder per sequence: <SEQ>/gt/gt.txt
+TRACKERS_DIR = TRACKERS_FOLDER / BENCHMARK_SPLIT             # one folder per tracker: <NAME>/data/<SEQ>.txt
+
+
+# ============================================================
+# 6. C++ SORT TRACKER
+# ============================================================
 
 # Folder that contains sort_tracker.pyd (built with CMake)
 SORT_BUILD_DIR = ROOT / "tracking" / "sort_cpp" / "build" / "Release"
-sys.path.insert(0, str(SORT_BUILD_DIR))
-IGNORED_DIR = ROOT / "outputs" / "ignored_regions"
+
+# Lets "import sort_tracker" work in any file that imports this config first
+if str(SORT_BUILD_DIR) not in sys.path:
+    sys.path.insert(0, str(SORT_BUILD_DIR))
 
 
-TARGET_CLASSES = [0, 2, 3, 5, 7]
+# ============================================================
+# 7. PERFORMANCE MONITORING
+# ============================================================
 
 # Display order of the latency table
 STAGES = [
@@ -35,17 +94,11 @@ STAGES = [
 ]
 
 
-# Dossier contenant toutes les séquences UA-DETRAC
-DATASET_DIR = Path(
-    r"D:\Projects\SeeDrive\datasets\DETRAC-Images\DETRAC-Images"
-)
+# ============================================================
+# 8. OLD NAMES (kept so existing scripts don't break)
+# ============================================================
+# Replace them little by little with the new names, then delete this section.
 
-# Dossier de sortie des vidéos
-OUTPUT_DIR = Path(r"D:\Projects\SeeDrive\datasets\videos\generated")
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
-# Vitesse de lecture des vidéos générées
-FPS = 25
-
-# Extensions d'images acceptées
-IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
+DATASET_DIR = IMAGES_DIR             # new name: IMAGES_DIR
+OUTPUT_DIR = DETECTIONS_DIR          # new name: DETECTIONS_DIR
+TRACKEVAL_GT_DIR = GT_FOLDER         # new name: GT_FOLDER

@@ -4,10 +4,6 @@ Step 2 test: draw the ground truth boxes WITH their IDs on the images.
 Each vehicle must keep the same ID (and the same color) from start to end.
 Ignored regions are shown in gray.
 
-Keys: SPACE = pause / resume, q = quit
-
-Example:
-    python tracking/check_gt.py --sequence MVI_20011
 """
 
 import argparse
@@ -16,11 +12,7 @@ from pathlib import Path
 
 import cv2
 
-ROOT = Path(__file__).resolve().parent.parent
-IMAGES_DIR = ROOT / "datasets" / "DETRAC-Images" / "DETRAC-Images"
-GT_DIR = ROOT / "outputs" / "trackeval" / "gt" / "mot_challenge" / "DETRAC-train"
-IGNORED_DIR = ROOT / "outputs" / "ignored_regions"
-IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
+from configs.config import GT_DIR, IGNORED_DIR, IMAGE_EXTENSIONS, IMAGES_DIR
 
 
 def frame_number(image_path):
