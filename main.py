@@ -3,8 +3,9 @@ import argparse
 from pathlib import Path
 
 from configs.config import CONFIG_PATH
-from ingest.rtsp_reader import load_cameras, run_camera, start_cameras, stop_cameras
-from perception.inference import load_model, run_inference
+from ingest.rtsp_reader import load_cameras, start_cameras, stop_cameras
+from perception.inference import  run_inference
+from configs.helpers import load_model   
 
 
 def main():

@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 import subprocess
 
-from configs.config import DATASET_DIR, FPS, IMAGE_EXTENSIONS, OUTPUT_DIR
+from configs.config import DATASET_DIR, FPS, IMAGE_EXTENSIONS, VIDEOS_DIR
 
 
 def natural_sort_key(path):
@@ -25,7 +25,7 @@ def create_video(sequence_dir):
         print(f"[IGNORÉ] Aucune image dans {sequence_dir.name}")
         return
 
-    output_path = OUTPUT_DIR / f"{sequence_dir.name}.mp4"
+    output_path = VIDEOS_DIR / f"{sequence_dir.name}.mp4"
 
     command = [
         "ffmpeg",
@@ -69,7 +69,7 @@ def main():
     )
 
     print(f"Nombre de séquences trouvées : {len(sequences)}")
-    print(f"Dossier de sortie : {OUTPUT_DIR}")
+    print(f"Dossier de sortie : {VIDEOS_DIR}")
     print(f"FPS des vidéos : {FPS}\n")
 
     for sequence_dir in sequences:
