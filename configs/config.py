@@ -20,13 +20,17 @@ ROOT = Path(__file__).resolve().parent.parent
 # ============================================================
 
 IMAGES_DIR = ROOT / "datasets" / "DETRAC-Images" / "DETRAC-Images"
-ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Train-Annotations-XML"
-                   / "DETRAC-Train-Annotations-XML")
+TRAIN_ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Train-Annotations-XML"
+                         / "DETRAC-Train-Annotations-XML")
+TEST_ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Test-Annotations-XML"
+                        / "DETRAC-Test-Annotations-XML")   
+
 VIDEOS_DIR = ROOT / "datasets" / "videos" / "generated"      # .mp4 made by create_detrac_videos.py
 
 DEFAULT_SEQUENCES = ["MVI_20011", "MVI_20012", "MVI_20032"]
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
 FPS = 25                                                     # UA-DETRAC is filmed at 25 fps
+YOLO_DATASET_DIR = ROOT / "datasets" / "detrac_yolo"         # fine-tuning dataset (YOLO format)
 
 
 # ============================================================
@@ -102,3 +106,4 @@ STAGES = [
 DATASET_DIR = IMAGES_DIR             # new name: IMAGES_DIR
 OUTPUT_DIR = DETECTIONS_DIR          # new name: DETECTIONS_DIR
 TRACKEVAL_GT_DIR = GT_FOLDER         # new name: GT_FOLDER
+ANNOTATIONS_DIR = TRAIN_ANNOTATIONS_DIR   # new name: TRAIN_ANNOTATIONS_DIR

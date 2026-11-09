@@ -34,3 +34,6 @@ outputs/
 
 # Third party libraries
 third_party/
+
+# YOLO training outputs (weights, curves)
+runs/
