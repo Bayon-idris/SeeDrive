@@ -39,7 +39,8 @@ YOLO_DATASET_DIR = ROOT / "datasets" / "detrac_yolo"         # fine-tuning datas
 
 CONFIG_PATH = ROOT / "configs" / "cameras.yaml"
 LOG_DIR = ROOT / "log"
-DEFAULT_FPS = float(FPS)                                     # fallback when RTSP reports a wrong FPS
+DEFAULT_FPS = float(FPS)      # fallback when RTSP reports a wrong FPS
+HOMOGRAPHY_DIR = ROOT / "configs" / "homography"            # one image->ground matrix per camera
 
 
 # ============================================================
