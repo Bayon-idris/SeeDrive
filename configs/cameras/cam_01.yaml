@@ -1,0 +1,31 @@
+# Scene settings of camera cam_01 (UA-DETRAC MVI_20011).
+# All coordinates are pixels of the camera image (960 x 540).
+
+camera: cam_01
+sequence: MVI_20011
+homography: configs/homography/MVI_20011.json
+
+# Vehicles crossing this line are counted, per direction
+counting_line: [[425, 260], [960, 260]]
+
+zones:
+  - name: sidewalk
+    type: forbidden                  # a vehicle staying here = alert
+    polygon: [[390, 190], [435, 190], [320, 540], [260, 540]]
+
+  - name: main_road
+    type: direction
+    expected: toward_camera          # vehicles must come toward the camera
+    polygon: [[465, 120], [655, 120], [960, 470], [960, 540], [330, 540]]
+
+  - name: opposite_road
+    type: direction
+    expected: away_from_camera       # vehicles must drive away from the camera
+    polygon: [[630, 60], [700, 60], [960, 200], [960, 330], [870, 290]]
+
+thresholds:
+  stopped_kmh: 5                     # slower than this = not moving
+  stopped_seconds: 10                # not moving for this long = "stopped vehicle" alert
+  wrong_way_kmh: 10                  # wrong way only counts above this speed
+  wrong_way_seconds: 1               # wrong way for this long = alert
+  forbidden_seconds: 2               # inside a forbidden zone for this long = alert

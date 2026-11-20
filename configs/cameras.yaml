@@ -7,7 +7,7 @@ cameras:
     name: DETRAC MVI_20011
     rtsp_url: rtsp://127.0.0.1:8554/cam_01
     source_video: datasets/videos/generated/MVI_20011.mp4
-    enabled: false
+    enabled: true
 
   - id: cam_02
     name: DETRAC MVI_20012
