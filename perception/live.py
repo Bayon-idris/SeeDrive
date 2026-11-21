@@ -93,19 +93,15 @@ def perception_loop(model, frames, results, stop):
 
 
 # ------------------------------------------------------------------ main thread
-def main():
-    parser = argparse.ArgumentParser(description="SeeDrive live pipeline")
-    parser.add_argument("--camera", default="cam_01")
-    parser.add_argument("--simulate", action="store_true", help="swap expected directions (demo)")
-    args = parser.parse_args()
-
-    camera = next((c for c in load_cameras(CONFIG_PATH) if c["id"] == args.camera), None)
+def run(camera_id, simulate=False):
+    """Run the full live pipeline on one camera (until 'q' or Ctrl+C)."""
+    camera = next((c for c in load_cameras(CONFIG_PATH) if c["id"] == camera_id), None)
     if camera is None:
-        print(f"[ERROR] {args.camera} not found or not enabled in {CONFIG_PATH}")
+        print(f"[ERROR] {camera_id} not found or not enabled in {CONFIG_PATH}")
         return
 
     model = YOLO(str(MODEL_PATH))
-    logic = TrafficLogic(args.camera, simulate=args.simulate)
+    logic = TrafficLogic(camera_id, simulate=simulate)
     frames, results, stop = Latest(), Latest(), threading.Event()
 
     processes = start_cameras([camera])                       # FFmpeg publishes the simulated camera
@@ -134,7 +130,7 @@ def main():
             now = time.perf_counter()
             if now - fps_t0 >= 1.0:
                 fps, fps_frames, fps_t0 = fps_frames / (now - fps_t0), 0, now
-            draw_label(image, f"{args.camera} | {fps:.1f} FPS", 10, 55, scale=0.6)
+            draw_label(image, f"{camera_id} | {fps:.1f} FPS", 10, 55, scale=0.6)
 
             cv2.imshow("SeeDrive - live", image)
             if cv2.waitKey(1) & 0xFF == ord("q"):
@@ -148,7 +144,3 @@ def main():
         stop_cameras(processes)
         cv2.destroyAllWindows()
         print("Counts:", logic.counter.counts)
-
-
-if __name__ == "__main__":
-    main()
