@@ -3,7 +3,6 @@ import threading
 
 
 class LatencyStats:
-    """Keeps the last N measurements (in ms) for each stage."""
 
     def __init__(self, maxlen=100):
         self.maxlen = maxlen
@@ -17,4 +16,3 @@ class LatencyStats:
     def means(self):
         with self.lock:
             return {k: sum(v) / len(v) for k, v in self.values.items() if v}
-

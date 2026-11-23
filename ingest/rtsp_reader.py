@@ -4,8 +4,7 @@ from datetime import datetime
 import subprocess
 import shutil
 
-from configs.config import DEFAULT_FPS, LOG_DIR, ROOT
-from test import CONFIG_PATH
+from configs.config import DEFAULT_FPS, LOG_DIR, ROOT , CONFIG_PATH
 
 # Doit être défini AVANT l'import de cv2.
 os.environ.setdefault("OPENCV_FFMPEG_CAPTURE_OPTIONS", "rtsp_transport;tcp")

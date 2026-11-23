@@ -1,0 +1,7 @@
+# Install torch first, with the CUDA build of your GPU: https://pytorch.org
+ultralytics==8.4.183
+opencv-python
+numpy
+pyyaml
+pybind11
+git+https://github.com/JonathonLuiten/TrackEval.git

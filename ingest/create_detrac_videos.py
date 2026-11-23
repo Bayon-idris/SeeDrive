@@ -1,4 +1,3 @@
-from pathlib import Path
 import re
 import subprocess
 
@@ -6,7 +5,7 @@ from configs.config import DATASET_DIR, FPS, IMAGE_EXTENSIONS, VIDEOS_DIR
 
 
 def natural_sort_key(path):
-    """Trie les images naturellement : img2 avant img10."""
+    
     return [
         int(part) if part.isdigit() else part.lower()
         for part in re.split(r"(\d+)", path.name)

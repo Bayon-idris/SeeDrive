@@ -476,7 +476,7 @@ cameras:
     name: DETRAC MVI_40892
     rtsp_url: rtsp://127.0.0.1:8554/cam_79
     source_video: datasets/videos/generated/MVI_40892.mp4
-    enabled: false
+    enabled: true
 
   - id: cam_80
     name: DETRAC MVI_40901

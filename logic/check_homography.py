@@ -1,12 +1,3 @@
-"""
-logic/check_homography.py
-Bird's-eye view of a camera: warp the image with its homography H.
-If H is right, lane lines become vertical, parallel and 3.5 m apart.
-
-Run from the project root:
-    python -m logic.check_homography --sequence MVI_20011
-"""
-
 import argparse
 import json
 
@@ -15,13 +6,16 @@ import numpy as np
 
 from configs.config import HOMOGRAPHY_DIR, IMAGES_DIR
 
-PX_PER_M = 10            # bird-view resolution: 10 pixels = 1 meter
-X_RANGE = (-15, 20)      # meters shown across the road (A is x = 0)
-Y_RANGE = (-10, 90)      # meters shown along the road (A is y = 0, positive = away from camera)
+PX_PER_M = 10  # bird-view resolution: 10 pixels = 1 meter
+X_RANGE = (-15, 20)  # meters shown across the road (A is x = 0)
+Y_RANGE = (
+    -10,
+    90,
+)  # meters shown along the road (A is y = 0, positive = away from camera)
 
 
 def load_homography(seq):
-    """Read the H matrix saved by calibrate.py."""
+
     data = json.loads((HOMOGRAPHY_DIR / f"{seq}.json").read_text(encoding="utf-8"))
     return np.array(data["H"], dtype=np.float64)
 
@@ -33,11 +27,13 @@ def bird_view(image, H):
     s = PX_PER_M
 
     # meters -> bird-view pixels (y flipped so that far from the camera = top of the picture)
-    to_pixels = np.array([[s, 0, -xmin * s],
-                          [0, -s, ymax * s],
-                          [0, 0, 1]], dtype=np.float64)
+    to_pixels = np.array(
+        [[s, 0, -xmin * s], [0, -s, ymax * s], [0, 0, 1]], dtype=np.float64
+    )
     size = ((xmax - xmin) * s, (ymax - ymin) * s)
-    view = cv2.warpPerspective(image, to_pixels @ H, size)   # image pixels -> meters -> bird pixels
+    view = cv2.warpPerspective(
+        image, to_pixels @ H, size
+    )  # image pixels -> meters -> bird pixels
 
     for x in range(xmin, xmax + 1, 5):
         px = (x - xmin) * s
@@ -45,12 +41,16 @@ def bird_view(image, H):
     for y in range(ymin, ymax + 1, 5):
         py = (ymax - y) * s
         cv2.line(view, (0, py), (size[0], py), (0, 255, 255), 1)
-        cv2.putText(view, f"{y} m", (3, py - 3), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 255, 255), 1)
+        cv2.putText(
+            view, f"{y} m", (3, py - 3), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (0, 255, 255), 1
+        )
     return view
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Bird's-eye view to check a homography")
+    parser = argparse.ArgumentParser(
+        description="Bird's-eye view to check a homography"
+    )
     parser.add_argument("--sequence", default="MVI_20011")
     args = parser.parse_args()
 

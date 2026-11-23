@@ -1,9 +1,3 @@
-"""
-logic/alerts.py
-Alerts of one camera: printed, written to a log file (one JSON per line),
-and drawn as red banners on the video for a few seconds.
-"""
-
 import json
 from collections import deque
 from datetime import datetime
@@ -13,7 +7,7 @@ import cv2
 from configs.config import FPS, OUTPUTS_DIR
 
 ALERTS_DIR = OUTPUTS_DIR / "alerts"
-SHOW_SECONDS = 3            # how long an alert stays on screen
+SHOW_SECONDS = 2           
 
 
 class AlertLog:

@@ -1,0 +1,25 @@
+# Scene settings of camera cam_79 (UA-DETRAC MVI_40892, test split: never seen in training).
+# Rainy intersection. All coordinates are pixels of the camera image (960 x 540).
+
+camera: cam_79
+sequence: MVI_40892
+# no homography yet: no speed on this camera (add it after logic/calibrate.py)
+
+# Route counting: the first line a vehicle crosses = origin, the next one = destination.
+# The red dot (box center) is what crosses the lines.
+lines:
+  - name: L1                         # west arm (left edge)
+    points: [[70, 345], [70, 110]]
+  - name: L2                         # north arm (far side)
+    points: [[110, 120], [620, 175]]
+  - name: L3                         # south-east exit (bottom right)
+    points: [[760, 330], [800, 530]]
+  - name: L4                         # south-west arm (bottom left)
+    points: [[70, 470], [70, 365]]
+
+# Rows of the counts panel, in this order (other routes are added when they happen)
+routes:
+  - [L1, L2]
+  - [L2, L1]
+  - [L2, L3]
+  - [L4, L2]

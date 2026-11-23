@@ -1,12 +1,3 @@
-"""
-logic/pick_points.py
-Click on a camera image to get pixel coordinates (for the camera YAML file).
-Keys: c = print all points as a YAML list, r = restart, q = quit
-
-Run from the project root:
-    python -m logic.pick_points --sequence MVI_20011
-"""
-
 import argparse
 
 import cv2

@@ -1,10 +1,3 @@
-"""
-tracking/check_gt.py
-Step 2 test: draw the ground truth boxes WITH their IDs on the images.
-Each vehicle must keep the same ID (and the same color) from start to end.
-Ignored regions are shown in gray.
-
-"""
 
 import argparse
 from collections import defaultdict

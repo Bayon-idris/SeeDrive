@@ -1,7 +1,6 @@
 import threading
 
 class SharedSlot:
-    """Latest item written by one thread and read by another (protected by a lock)."""
 
     def __init__(self):
         self.lock = threading.Lock()

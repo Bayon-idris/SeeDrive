@@ -11,12 +11,11 @@ from configs.config import YOLO_DATASET_DIR
 
 
 def draw_labels(image, label_path):
-    """YOLO lines 'cls cx cy w h' (between 0 and 1) -> rectangles in pixels."""
     img_h, img_w = image.shape[:2]
     n_boxes = 0
     for line in label_path.read_text(encoding="utf-8").splitlines():
         _, cx, cy, w, h = map(float, line.split())
-        x1 = int((cx - w / 2) * img_w)            # inverse of to_yolo_line
+        x1 = int((cx - w / 2) * img_w)  # inverse of to_yolo_line
         y1 = int((cy - h / 2) * img_h)
         x2 = int((cx + w / 2) * img_w)
         y2 = int((cy + h / 2) * img_h)
@@ -35,16 +34,24 @@ def main():
     lbl_dir = YOLO_DATASET_DIR / "labels" / args.split
     images = sorted(img_dir.glob("*.jpg"))
 
-    # Integrity check: every image must have its label file
     missing = [p.name for p in images if not (lbl_dir / f"{p.stem}.txt").is_file()]
-    print(f"[INFO] {args.split}: {len(images)} images, {len(missing)} without label file")
+    print(
+        f"[INFO] {args.split}: {len(images)} images, {len(missing)} without label file"
+    )
 
     for img_path in random.sample(images, min(args.n, len(images))):
         image = cv2.imread(str(img_path))
         n_boxes = draw_labels(image, lbl_dir / f"{img_path.stem}.txt")
 
-        cv2.putText(image, f"{img_path.stem} | {n_boxes} boxes", (10, 25),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+        cv2.putText(
+            image,
+            f"{img_path.stem} | {n_boxes} boxes",
+            (10, 25),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.7,
+            (255, 255, 255),
+            2,
+        )
         cv2.imshow("Check YOLO labels", image)
         if cv2.waitKey(0) & 0xFF == ord("q"):
             break

@@ -1,17 +1,3 @@
-"""
-tracking/save_detections.py
-Step 1: run YOLO (detection only, no tracking) on UA-DETRAC image sequences
-and save all detections in MOT format, one text file per sequence.
-
-Line format (MOT):  frame, -1, x, y, w, h, conf, -1, -1, -1
-    frame : frame number (starts at 1, same as the image name img00001.jpg)
-    -1    : no ID yet (the tracker will assign IDs later)
-    x, y  : top-left corner of the box (pixels)
-    w, h  : width and height of the box (pixels)
-    conf  : detection confidence (0 to 1)
-
-"""
-
 import argparse
 
 from ultralytics import YOLO

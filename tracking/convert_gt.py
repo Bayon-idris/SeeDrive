@@ -1,19 +1,3 @@
-"""
-tracking/convert_gt.py
-Step 2: convert UA-DETRAC XML annotations (ground truth) to MOT format,
-directly in the folder structure expected by TrackEval.
-
-Output:
-    outputs/trackeval/gt/mot_challenge/DETRAC-train/<SEQ>/gt/gt.txt
-    outputs/trackeval/gt/mot_challenge/DETRAC-train/<SEQ>/seqinfo.ini
-    outputs/trackeval/gt/mot_challenge/seqmaps/DETRAC-train.txt
-    outputs/ignored_regions/<SEQ>.txt
-
-gt.txt line format:  frame, id, x, y, w, h, 1, 1, 1
-    the last three values = "evaluate this box", class 1 (single class), fully visible
-
-"""
-
 import argparse
 import xml.etree.ElementTree as ET
 

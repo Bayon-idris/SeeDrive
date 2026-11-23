@@ -1,23 +1,11 @@
-"""
-configs/config.py
-Single place for every path and setting of SeeDrive.
-Other files import from here:  from configs.config import ROOT, IMAGES_DIR, ...
-"""
-
 import sys
 from pathlib import Path
 
 
-# ============================================================
-# 1. PROJECT ROOT
-# ============================================================
-
 ROOT = Path(__file__).resolve().parent.parent
 
 
-# ============================================================
 # 2. DATASET (UA-DETRAC)
-# ============================================================
 
 IMAGES_DIR = ROOT / "datasets" / "DETRAC-Images" / "DETRAC-Images"
 TRAIN_ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Train-Annotations-XML"
@@ -25,30 +13,31 @@ TRAIN_ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Train-Annotations-XML"
 TEST_ANNOTATIONS_DIR = (ROOT / "datasets" / "DETRAC-Test-Annotations-XML"
                         / "DETRAC-Test-Annotations-XML")   
 
-VIDEOS_DIR = ROOT / "datasets" / "videos" / "generated"      # .mp4 made by create_detrac_videos.py
+VIDEOS_DIR = ROOT / "datasets" / "videos" / "generated"      
 
 DEFAULT_SEQUENCES = ["MVI_20011", "MVI_20012", "MVI_20032"]
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp"}
 FPS = 25                                                     # UA-DETRAC is filmed at 25 fps
-YOLO_DATASET_DIR = ROOT / "datasets" / "detrac_yolo"         # fine-tuning dataset (YOLO format)
+YOLO_DATASET_DIR = ROOT / "datasets" / "detrac_yolo"         
+MODEL_PATH = ROOT / "runs" / "yolo11n_detrac_4cls" / "weights" / "best.pt"
 
 
-# ============================================================
+
 # 3. LIVE PIPELINE (cameras, RTSP, logs)
-# ============================================================
 
 CONFIG_PATH = ROOT / "configs" / "cameras.yaml"
+
 LOG_DIR = ROOT / "log"
 DEFAULT_FPS = float(FPS)      # fallback when RTSP reports a wrong FPS
-HOMOGRAPHY_DIR = ROOT / "configs" / "homography"            # one image->ground matrix per camera
+HOMOGRAPHY_DIR = ROOT / "configs" / "homography"            
 
 
-# ============================================================
 # 4. DETECTION (YOLO, COCO class IDs)
-# ============================================================
 
 TARGET_CLASSES = [2, 3, 5, 7]     # live pipeline: car, motorcycle, bus, truck
 VEHICLE_CLASSES = [2, 5, 7]       # evaluation: car, bus, truck (what UA-DETRAC annotates)
+MODEL_PATH = ROOT / "runs" / "yolo11n_detrac_4cls" / "weights" / "best.pt"
+
 
 
 # ============================================================
@@ -71,10 +60,7 @@ GT_DIR = GT_FOLDER / BENCHMARK_SPLIT                         # one folder per se
 TRACKERS_DIR = TRACKERS_FOLDER / BENCHMARK_SPLIT             # one folder per tracker: <NAME>/data/<SEQ>.txt
 
 
-# ============================================================
 # 6. C++ SORT TRACKER
-# ============================================================
-
 # Folder that contains sort_tracker.pyd (built with CMake)
 SORT_BUILD_DIR = ROOT / "tracking" / "sort_cpp" / "build" / "Release"
 
@@ -83,7 +69,6 @@ if str(SORT_BUILD_DIR) not in sys.path:
     sys.path.insert(0, str(SORT_BUILD_DIR))
 
 
-# ============================================================
 # 7. PERFORMANCE MONITORING
 # ============================================================
 
@@ -99,11 +84,7 @@ STAGES = [
 ]
 
 
-# ============================================================
 # 8. OLD NAMES (kept so existing scripts don't break)
-# ============================================================
-# Replace them little by little with the new names, then delete this section.
-
 DATASET_DIR = IMAGES_DIR             # new name: IMAGES_DIR
 OUTPUT_DIR = DETECTIONS_DIR          # new name: DETECTIONS_DIR
 TRACKEVAL_GT_DIR = GT_FOLDER         # new name: GT_FOLDER

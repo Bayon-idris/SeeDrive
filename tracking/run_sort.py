@@ -1,14 +1,3 @@
-"""
-tracking/run_sort.py
-Run two trackers on the saved YOLO detections:
-    - SORT      : our C++ tracker (sort_tracker module, built with pybind11)
-    - ByteTrack : Ultralytics' implementation, used as a reference
-Results are written in MOT format for TrackEval (tracking/evaluate.py).
-
-Run from the project root:
-    python -m tracking.run_sort
-"""
-
 import sys
 from collections import defaultdict
 from types import SimpleNamespace

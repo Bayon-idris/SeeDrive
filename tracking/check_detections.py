@@ -1,11 +1,3 @@
-"""
-tracking/check_detections.py
-Step 1 test: draw the saved detections on the original images.
-
-    Green box  : confidence >= 0.5
-    Orange box : confidence < 0.5 (low-confidence detections)
-"""
-
 import argparse
 from collections import defaultdict
 import cv2
